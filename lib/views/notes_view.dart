@@ -7,8 +7,9 @@ class notesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
+    return  Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){},child:const Icon(Icons.add),),
+      body:const  Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
@@ -16,12 +17,23 @@ class notesView extends StatelessWidget {
               height: 30,
             ),
             customAppBar(),
-            SizedBox(height: 16,),
-            customNotesItem()
+            
+            Expanded(child: notesListView())
           ],
         ),
       ),
     );
   }
 }
+class notesListView extends StatelessWidget {
+  const notesListView({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return  ListView.builder(itemBuilder: ( context, index){
+      
+      return const customNotesItem();
+    },
+    itemCount: 15,);
+  }
+}
