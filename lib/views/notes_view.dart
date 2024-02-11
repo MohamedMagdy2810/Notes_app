@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/widgets/add_note_bottom_sheet.dart';
 import 'package:notes_app/views/widgets/custom_appbar.dart';
 import 'package:notes_app/views/widgets/custom_notes_item.dart';
+import 'package:notes_app/views/widgets/note_list_view.dart';
 
 class notesView extends StatelessWidget {
   const notesView({super.key});
@@ -8,7 +10,11 @@ class notesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){},child:const Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showModalBottomSheet(context){
+          return addNoteSheet();
+        }
+      },child:const Icon(Icons.add),),
       body:const  Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -23,17 +29,5 @@ class notesView extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-class notesListView extends StatelessWidget {
-  const notesListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  ListView.builder(itemBuilder: ( context, index){
-      
-      return const customNotesItem();
-    },
-    itemCount: 15,);
   }
 }
