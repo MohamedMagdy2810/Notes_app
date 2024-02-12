@@ -8,20 +8,28 @@ class addNoteSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 40,),
-           CustomTextField(hintText: 'note'),
-             SizedBox(height: 16,),
-           CustomTextField(hintText: 'Content',maxLines: 5,),
-        SizedBox(height: 50,),
-        CustomButton(text: 'Add'),
-         SizedBox(height: 32,),
-          
-        
-           
+            const SizedBox(
+              height: 40,
+            ),
+            CustomTextField(hintText: 'note'),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextField(
+              hintText: 'Content',
+              maxLines: 5,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            CustomButton(text: 'Add'),
+            const SizedBox(
+              height: 32,
+            ),
           ],
         ),
       ),
