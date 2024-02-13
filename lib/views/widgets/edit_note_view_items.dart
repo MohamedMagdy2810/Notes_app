@@ -15,7 +15,7 @@ class editNoteViewItems extends StatelessWidget {
          const customAppBar(title: 'Edit notes', icon: Icons.check),
          const SizedBox(height: 50,),
           CustomTextField(hintText: 'title',),
-         const SizedBox(height: 16,),
+          SizedBox(height: 16,),
           CustomTextField(hintText: 'content',maxLines: 5,)
         ],
       ),

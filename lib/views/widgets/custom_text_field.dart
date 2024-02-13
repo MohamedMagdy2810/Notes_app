@@ -3,10 +3,10 @@ import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
    CustomTextField(
-      { required this.hintText, this.onChange, this.obsecureText = false,  this.maxLines = 1});
+      { required this.hintText, this.obsecureText = false,  this.maxLines = 1, this.onSaved});
   final String hintText;
   final int maxLines;
-  Function(String)? onChange;
+  final void Function(String?)? onSaved;
   bool obsecureText;
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,13 @@ class CustomTextField extends StatelessWidget {
       cursorColor: PrimaryColor,
       obscureText: obsecureText,
       validator: (data) {
-        if (data!.isEmpty) {
+        if (data?.isEmpty ??true) {
           return 'failed is requried';
+        }else{
+          return null;
         }
       },
-      onChanged: onChange,
+      onSaved: onSaved,
       decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color:PrimaryColor),
